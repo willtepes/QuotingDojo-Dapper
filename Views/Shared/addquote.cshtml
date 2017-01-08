@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+         <meta charset="UTF-8">
+         <title>Hello</title>
+    </head>
+    <body>
+        <h1>Welcome to QuotingDojo</h1>
+        Your name: @ViewBag.first_name @ViewBag.last_name<br>
+        <form action="quotes" method="post">
+            
+            Your quote: <textarea name="quote" cols="30" rows="10"></textarea> <br>
+            <input type="submit" name="Add my quote!">
+        </form>
+        <div>
+        @{
+            foreach(var error in ViewBag.Errors)
+                {
+                    //If there are any errors for a field...
+                    if(@error.Errors.Count > 0)
+                    {
+                        // We show the first error for that field
+                        <p>@error.Errors[0].ErrorMessage</p>
+                    }
+                }
+        }
+    </div>
+        <a href="quotes">Skip to quotes!</a><br><br>      
+        <button><a href="logout">Log Out</a> </button>
+    </body>
+</html>

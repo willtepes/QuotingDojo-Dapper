@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quotes</title>
+  </head>
+  <body>
+      <h1>Here are the awesome quotes!</h1>
+      @{
+        foreach(var quote in ViewBag.Quotes)
+        {
+            <p>@quote.user.first_name - @quote.quote - @quote.created_at.ToString(" h:mm tt, MMMM dd, yyyy")</p> if(@ViewBag.UserID == @quote.Users_id){<button><a href="delete/@quote.Id">Delete</a></button>}
+          
+        }
+      }
+  </body>
+</html>
